@@ -19,6 +19,13 @@ app.get('/', (req, res) => {
     res.send('Welcome to K23-ECOM');
 });
 
+const productSchema = new mongoose.Schema({
+    name: String,
+    price: Number,
+    description: String,
+})
+
+const Product = mongoose.model('Product', productSchema);
 
 app.get('/products', async (req, res) => {
     try {
@@ -42,11 +49,6 @@ app.post('/products', async (req, res) => {
     }
 })
 
-const productSchema = new mongoose.Schema({
-    name: String,
-    price: Number,
-    description: String,
-})
     
 
 app.listen(5050, () => {
