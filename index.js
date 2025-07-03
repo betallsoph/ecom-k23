@@ -19,11 +19,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to K23-ECOM');
 });
 
-const productSchema = new mongoose.Schema({
-    name: String,
-    price: Number,
-    description: String,
-})
 
 app.get('/products', async (req, res) => {
     try {
@@ -45,6 +40,12 @@ app.post('/products', async (req, res) => {
         console.log(error);
         res.status(500).json({ message: error.message });
     }
+})
+
+const productSchema = new mongoose.Schema({
+    name: String,
+    price: Number,
+    description: String,
 })
     
 
