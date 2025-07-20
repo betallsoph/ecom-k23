@@ -49,8 +49,20 @@ app.post('/products', async (req, res) => {
     }
 })
 
+app.delete('/products/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedProduct = await Product.findByIdAndDelete(id);
+        if (!deletedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.status(200).json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+});
     
-
 app.listen(5050, () => {
     console.log('Server is running on port 5050');
 });
