@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb://103.90.226.103:27017/k23-ecom';
+const mongoURI = 'mongodb://48.230.97.226/:27017/k23-ecom';
 mongoose.connect(mongoURI).then(()=>{
     console.log('Connected to MongoDB');
 }).catch((err)=>{
