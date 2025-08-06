@@ -14,8 +14,8 @@ mongoose.connect(mongoURI).then(()=>{
 app.use(bodyParser.json());
 const corsOptions = {
     origin: [
-        'https://your-vercel-app.vercel.app', // Thay bằng domain Vercel thực của bạn
-        'http://localhost:3000', // Cho development
+        'https://ecom-k23.vercel.app/', // Thay bằng domain Vercel thực của bạn
+        'http://localhost:5050', // Cho development
         'https://ananan.click' // Domain backend của bạn
     ],
     credentials: true,
