@@ -12,7 +12,16 @@ mongoose.connect(mongoURI).then(()=>{
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+const corsOptions = {
+    origin: [
+        'https://your-vercel-app.vercel.app', // Thay bằng domain Vercel thực của bạn
+        'http://localhost:3000', // Cho development
+        'https://ananan.click' // Domain backend của bạn
+    ],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
