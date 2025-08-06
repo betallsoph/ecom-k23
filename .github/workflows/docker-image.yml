@@ -44,4 +44,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/my-ecom-app-k23:latest
             docker stop my-ecom-app-k23 || true
             docker rm my-ecom-app-k23 || true
-            docker run -d --name my-ecom-app-k23 -p 4031:4031 ${{ secrets.DOCKER_USERNAME }}/my-ecom-app-k23:latest
+            docker run -d --name my-ecom-app-k23 -p 5050:5050 --env-file .env ${{ secrets.DOCKER_USERNAME }}/my-ecom-app-k23:latest
